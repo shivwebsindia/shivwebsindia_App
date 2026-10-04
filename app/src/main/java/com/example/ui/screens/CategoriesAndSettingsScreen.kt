@@ -20,15 +20,18 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.Android
 import androidx.compose.material.icons.filled.Business
 import androidx.compose.material.icons.filled.DarkMode
 import androidx.compose.material.icons.filled.Delete
+import androidx.compose.material.icons.filled.Download
 import androidx.compose.material.icons.filled.Language
 import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material.icons.filled.Logout
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Phone
 import androidx.compose.material.icons.filled.Restore
+import com.example.util.ApkExportHelper
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
@@ -496,6 +499,37 @@ fun ProfileAndSettingsScreen(
                             Spacer(modifier = Modifier.width(4.dp))
                             Text("Reload Sample")
                         }
+                    }
+
+                    HorizontalDivider()
+
+                    Text(
+                        text = "Download / Share Mobile APK",
+                        style = MaterialTheme.typography.labelLarge.copy(fontWeight = FontWeight.ExtraBold),
+                        color = BrandDarkBlue
+                    )
+                    Text(
+                        text = "Extract and share the signed Smart_Expense_Income_Manager.apk file directly to your device, Drive, or WhatsApp.",
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                    Button(
+                        onClick = {
+                            ApkExportHelper.shareInstalledApk(context).onSuccess { file ->
+                                viewModel.showToast("APK ready: ${file.name}")
+                            }.onFailure {
+                                viewModel.showToast("APK located at: app/build/outputs/apk/debug/app-debug.apk")
+                            }
+                        },
+                        colors = ButtonDefaults.buttonColors(containerColor = BrandOrange),
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(50.dp)
+                            .testTag("btn_share_apk")
+                    ) {
+                        Icon(Icons.Default.Download, contentDescription = null)
+                        Spacer(modifier = Modifier.width(8.dp))
+                        Text("Download / Share Signed APK (.apk)", fontWeight = FontWeight.ExtraBold)
                     }
 
                     HorizontalDivider()

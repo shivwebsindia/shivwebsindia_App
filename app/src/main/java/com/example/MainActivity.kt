@@ -45,6 +45,7 @@ import androidx.compose.material.icons.filled.Dashboard
 import androidx.compose.material.icons.filled.DateRange
 import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.DoneAll
+import androidx.compose.material.icons.filled.Download
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.Notifications
@@ -119,6 +120,7 @@ import com.example.ui.theme.BrandDarkBlueSurface
 import com.example.ui.theme.BrandDarkRed
 import com.example.ui.theme.BrandOrange
 import com.example.ui.theme.MyApplicationTheme
+import com.example.util.ApkExportHelper
 import com.example.util.DateUtils
 import com.example.viewmodel.FinanceViewModel
 import kotlinx.coroutines.launch
@@ -656,6 +658,36 @@ private fun SidebarContent(
         Spacer(modifier = Modifier.height(12.dp))
         HorizontalDivider(color = Color.White.copy(alpha = 0.14f))
         Spacer(modifier = Modifier.height(8.dp))
+
+        val context = LocalContext.current
+        NavigationDrawerItem(
+            label = {
+                Text(
+                    text = "Download / Share APK",
+                    style = MaterialTheme.typography.labelLarge.copy(fontWeight = FontWeight.ExtraBold)
+                )
+            },
+            icon = {
+                Icon(
+                    imageVector = Icons.Default.Download,
+                    contentDescription = "Download APK"
+                )
+            },
+            selected = false,
+            onClick = {
+                ApkExportHelper.shareInstalledApk(context)
+            },
+            colors = NavigationDrawerItemDefaults.colors(
+                unselectedContainerColor = BrandOrange.copy(alpha = 0.22f),
+                unselectedIconColor = BrandOrange,
+                unselectedTextColor = BrandOrange
+            ),
+            modifier = Modifier
+                .padding(vertical = 2.dp)
+                .testTag("drawer_item_download_apk")
+        )
+
+        Spacer(modifier = Modifier.height(6.dp))
 
         NavigationDrawerItem(
             label = {
