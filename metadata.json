@@ -1,0 +1,6 @@
+{
+  "name": "Smart Expense Manager",
+  "description": "Professional Office & Home Finance, Expense, Income, Budget & Report Management Application",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

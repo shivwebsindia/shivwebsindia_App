@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Smart Expense Manager</string>
+    <string name="app_full_title">Smart Expense &amp; Income Manager</string>
+    <string name="brand_credit">Designed &amp; Developed by ShivWebsIndia</string>
+    <string name="brand_tagline">Website Design | Web Development | Digital Marketing</string>
+    <string name="brand_website">www.shivwebsindia.com</string>
+    <string name="footer_copyright">© 2026 Smart Expense &amp; Income Manager</string>
+    <string name="welcome_back">Welcome back!</string>
+    <string name="office_finance">Office Finance</string>
+    <string name="home_finance">Home Finance</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="all_transactions">All Transactions</string>
+    <string name="daily_view">Daily View</string>
+    <string name="weekly_view">Weekly View</string>
+    <string name="monthly_view">Monthly View</string>
+    <string name="budgets">Budgets</string>
+    <string name="recurring_expenses">Recurring Expenses</string>
+    <string name="categories">Categories</string>
+    <string name="reports">Reports</string>
+    <string name="settings_profile">Profile &amp; Settings</string>
+    <string name="logout">Logout</string>
+</resources>
